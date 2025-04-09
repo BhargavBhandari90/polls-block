@@ -15,6 +15,8 @@ Add interactive polls to WordPress. Engage visitors, gather feedback, and view r
 
 Easily create and manage interactive polls directly within the WordPress Block Editor. This lightweight plugin allows you to add customizable polls to any post or page, enabling you to engage your audience and gather feedback effortlessly. With a user-friendly interface, you can design polls, set voting options, and view results in real-time. Perfect for bloggers, marketers, and community builders looking to boost interaction and gather insights. Simple to set up and fully responsive, the Polls Block seamlessly integrates into your WordPress site. Start engaging your visitors today!
 
+https://www.youtube.com/watch?v=XMk_kF7ovq4
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/polls-block` directory, or install the plugin through the WordPress plugins screen directly.
