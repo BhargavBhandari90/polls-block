@@ -16,7 +16,7 @@ const { state } = store( 'buntywp-polls', {
 			const context = getContext();
 
 			// Return, if already voted or not loggedin.
-			if ( context.userVoted || ! context.isLoggedIn ) {
+			if ( context.userVoted || ! context.canUserVote ) {
 				return;
 			}
 

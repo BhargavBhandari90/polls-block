@@ -51,6 +51,10 @@
 		},
 		"blockId": {
 			"type": "string"
+		},
+		"allowAnonymous": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"textdomain": "polls-block",
