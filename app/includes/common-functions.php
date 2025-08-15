@@ -123,7 +123,7 @@ function btwp_polls_user_selection( $user_selection = '', $allow_anonymous = fal
 
 		$meta_key           = 'poll-' . $block_id;
 		$anonymous_meta_key = 'poll-anonymous-' . $block_id;
-		$user_id            = isset( $_COOKIE['poll_anonymous_user_id'] ) ? $_COOKIE['poll_anonymous_user_id'] : '';
+		$user_id            = isset( $_COOKIE['poll_anonymous_user_id'] ) ? $_COOKIE['poll_anonymous_user_id'] : ''; // phpcs:ignore
 
 		if ( ! empty( $user_id ) ) {
 			$anonymous_voted_users = get_post_meta( $post_id, $anonymous_meta_key, true );
