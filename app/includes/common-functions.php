@@ -63,7 +63,7 @@ function btwp_polls_is_user_voted( $block_id = '', $allow_anonymous = false, $po
 	}
 
 	if ( $allow_anonymous && ! is_user_logged_in() ) {
-		$user_id    = isset( $_COOKIE['poll_anonymous_user_id'] ) ? $_COOKIE['poll_anonymous_user_id'] : '';
+		$user_id    = isset( $_COOKIE['poll_anonymous_user_id'] ) ? $_COOKIE['poll_anonymous_user_id'] : ''; // phpcs:ignore
 		$user_voted = ! empty( $user_id ) ? btwp_polls_is_anonymous_user_voted( $block_id, $user_id, $post_id ) : false;
 	}
 
@@ -88,9 +88,9 @@ function btwp_polls_is_anonymous_user_voted( $block_id = '', $user_id = '', $pos
 		return false;
 	}
 
-	$user_voted            = false;
-	$meta_key              = 'poll-' . $block_id;
-	$anonymous_meta_key    = 'poll-anonymous-' . $block_id;
+	$user_voted         = false;
+	$meta_key           = 'poll-' . $block_id;
+	$anonymous_meta_key = 'poll-anonymous-' . $block_id;
 
 	// Retrieve all anonymous votes for this poll.
 	$anonymous_voted_users = get_post_meta( $post_id, $anonymous_meta_key, true );
@@ -104,7 +104,15 @@ function btwp_polls_is_anonymous_user_voted( $block_id = '', $user_id = '', $pos
 
 	return $user_voted;
 }
-
+/**
+ * Get User's selected poll option.
+ *
+ * @param string  $user_selection User selection idenx.
+ * @param bool    $allow_anonymous If anonymous voting is allowed.
+ * @param string  $block_id Block Id.
+ * @param integer $post_id Post Id.
+ * @return integer
+ */
 function btwp_polls_user_selection( $user_selection = '', $allow_anonymous = false, $block_id = '', $post_id = 0 ) {
 
 	if ( empty( $user_selection ) || empty( $block_id ) ) {
@@ -120,7 +128,7 @@ function btwp_polls_user_selection( $user_selection = '', $allow_anonymous = fal
 		if ( ! empty( $user_id ) ) {
 			$anonymous_voted_users = get_post_meta( $post_id, $anonymous_meta_key, true );
 
-			if ( ! empty( $anonymous_voted_users  ) ) {
+			if ( ! empty( $anonymous_voted_users ) ) {
 				$user_selection = isset( $anonymous_voted_users[ $meta_key ][ $user_id ] ) ? intval( $anonymous_voted_users[ $meta_key ][ $user_id ] ) : 0;
 			}
 		}
