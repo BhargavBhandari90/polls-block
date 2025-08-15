@@ -1,0 +1,15 @@
+name: WPCS
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    wpcs:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - uses: php-actions/composer@v1
+            - name: Run WordPress Coding Standards
+              run: ./vendor/bin/phpcs --standard=WordPress . --extensions=php --ignore=*/build/*,*/vendor/*

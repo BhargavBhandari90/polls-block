@@ -1,0 +1,30 @@
+name: Lint JS
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        types: [opened, synchronize]
+        branches:
+            - main
+
+jobs:
+    lintjs:
+        name: Lint JS
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: '.nvmrc'
+
+            - name: Node install
+              run: |
+                  npm ci
+
+            - name: Run JS Lint
+              run: npm run lint:js

@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect } from '@wordpress/element';
 import {
 	useBlockProps,
 	RichText,
@@ -76,7 +76,9 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							placeholder={
-								__( 'Choice ', 'polls-block' ) + ( index + 1 )
+								__( 'Choice', 'polls-block' ) +
+								' ' +
+								( index + 1 )
 							}
 							value={ option.option }
 							onChange={ ( value ) =>

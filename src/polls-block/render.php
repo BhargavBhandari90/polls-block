@@ -72,7 +72,6 @@ wp_enqueue_style( 'dashicons' );
 	<?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>
 	data-wp-interactive="buntywp-polls"
 	<?php echo wp_kses_data( wp_interactivity_data_wp_context( $context ) ); ?>
-	data-wp-watch="callbacks.logIsPollOpen"
 >
 	<div clas="poll-question">
 		<h3><?php echo esc_html( $attributes['question'] ); ?></h3>
