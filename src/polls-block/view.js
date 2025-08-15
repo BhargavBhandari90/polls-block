@@ -16,11 +16,11 @@ const { state } = store( 'buntywp-polls', {
 			const context = getContext();
 
 			// Return, if already voted or not loggedin.
-			if ( context.userVoted || ! context.isLoggedIn ) {
+			if ( context.userVoted || ! context.canUserVote ) {
 				return;
 			}
 
-			let index = context.item.id;
+			const index = context.item.id;
 			context.options[ index ].votes =
 				( context.options[ index ].votes || 0 ) + 1;
 			context.userSelection = index;
@@ -34,7 +34,7 @@ const { state } = store( 'buntywp-polls', {
 			if ( context.totalVotes === 0 ) {
 				return '0%';
 			}
-			let index = context.item.id;
+			const index = context.item.id;
 			const percentage =
 				( context.options[ index ].votes / context.totalVotes ) * 100;
 			return `${ percentage.toFixed( 0 ) }%`;
@@ -42,16 +42,11 @@ const { state } = store( 'buntywp-polls', {
 
 		getUserSelection: () => {
 			const context = getContext();
-			let index = context.item.id;
+			const index = context.item.id;
 			return ! (
 				parseInt( context.options[ index ].id ) ===
 				parseInt( context.userSelection )
 			);
-		},
-	},
-	callbacks: {
-		logIsPollOpen: () => {
-			const { isOpen } = getContext();
 		},
 	},
 } );
@@ -59,7 +54,7 @@ const { state } = store( 'buntywp-polls', {
 /**
  * Save the vote to the server via AJAX.
  *
- * @param {object} context Poll Context.
+ * @param {Object} context Poll Context.
  */
 function saveVoteToServer( context ) {
 	fetch( state.ajaxUrl, {
@@ -74,10 +69,11 @@ function saveVoteToServer( context ) {
 		} ),
 	} )
 		.then( ( response ) => response.json() )
-		.then( ( data ) => {
-			console.log( 'Vote saved:', data );
+		.then( () => {
+			// Vote sucessful.
 		} )
 		.catch( ( error ) => {
+			// eslint-disable-next-line no-console
 			console.error( 'Error saving vote:', error );
 		} );
 }

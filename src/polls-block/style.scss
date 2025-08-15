@@ -1,4 +1,5 @@
 .wp-block-buntywp-polls-block {
+
   .poll-question h3 {
     margin-top: 0;
     margin-bottom: 20px;
@@ -23,6 +24,7 @@
   }
 
   .poll-option.cantvote {
+
     .poll-option-label,
     .progress-bar {
       cursor: unset;
@@ -75,9 +77,9 @@
 
 /*************************** CALC *********************************/
 
-.poll-option:hover {
-  background-color: #f0f8ff;
-}
+// .poll-option:hover {
+//   background-color: #f0f8ff;
+// }
 
 .progress-bar {
   position: absolute;
@@ -104,8 +106,9 @@
   color: #666;
 }
 
-.user-message {
-  color: #0073aa;
+.user-message,
+.poll-submit-message {
+  font-size: var(--wp--preset--font-size--small);
 }
 
 .hidden {

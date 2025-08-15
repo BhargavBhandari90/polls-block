@@ -1,14 +1,22 @@
 import { __ } from '@wordpress/i18n';
 import { useEffect } from '@wordpress/element';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
-import { Button, TextControl } from '@wordpress/components';
+import {
+	useBlockProps,
+	RichText,
+	InspectorControls,
+} from '@wordpress/block-editor';
+import {
+	Button,
+	PanelBody,
+	TextControl,
+	ToggleControl,
+} from '@wordpress/components';
 import { plus, closeSmall } from '@wordpress/icons';
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes, clientId } ) {
-	const { question, options, blockId } = attributes;
-
-	console.log( 'options', options );
+	const { question, options, blockId, allowAnonymous } = attributes;
+	// const [ allowAnonymous, setAllowAnonymous ] = useState( false );
 
 	// Set a unique blockId if not already set.
 	useEffect( () => {
@@ -39,6 +47,18 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 
 	return (
 		<div { ...useBlockProps() } key={ blockId }>
+			<InspectorControls>
+				<PanelBody title={ __( 'Poll Setting', 'toggle-content' ) }>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						checked={ allowAnonymous }
+						label={ __( 'Allow Anonymous Polls', 'polls-block' ) }
+						onChange={ ( val ) => {
+							setAttributes( { allowAnonymous: val } );
+						} }
+					/>
+				</PanelBody>
+			</InspectorControls>
 			<div className="poll-block-editor">
 				<div className="poll-question">
 					<RichText
@@ -53,8 +73,12 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				{ options.map( ( option, index ) => (
 					<div key={ index } className="poll-option">
 						<TextControl
+							__next40pxDefaultSize
+							__nextHasNoMarginBottom
 							placeholder={
-								__( 'Choice ', 'polls-block' ) + ( index + 1 )
+								__( 'Choice', 'polls-block' ) +
+								' ' +
+								( index + 1 )
 							}
 							value={ option.option }
 							onChange={ ( value ) =>
