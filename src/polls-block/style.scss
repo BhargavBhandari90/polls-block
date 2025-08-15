@@ -106,7 +106,8 @@
   color: #666;
 }
 
-.user-message {
+.user-message,
+.poll-submit-message {
   font-size: var(--wp--preset--font-size--small);
 }
 

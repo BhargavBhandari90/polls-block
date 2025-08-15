@@ -100,7 +100,7 @@ function btwp_polls_handle_poll_vote() {
 		$anonymous_voted_users = ! empty( $anonymous_voted_users ) ? $anonymous_voted_users : array();
 
 		if ( ! empty( $anonymous_voted_users ) && isset( $anonymous_voted_users[ $meta_key ] ) ) {
-			array_push( $anonymous_voted_users[ $meta_key ], $contex['userSesstionId'] );
+			$anonymous_voted_users[ $meta_key ][ $contex['userSesstionId'] ] = $user_selection;
 		} else {
 			$anonymous_voted_users = array(
 				$meta_key => array(

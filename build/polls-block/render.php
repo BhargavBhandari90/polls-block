@@ -102,13 +102,10 @@ wp_enqueue_style( 'dashicons' );
 			<span data-wp-text="state.totalVoteCount"></span> <?php echo wp_kses_data( _n( 'vote', 'votes', $context['totalVotes'], 'polls-block' ) ); ?>
 		</div>
 		<?php if ( ! is_user_logged_in() ) : ?>
-			<div class="user-message">
+			<div class="user-message" data-wp-class--hidden="context.userVoted">
 				<?php
-
 				if ( $attributes['allowAnonymous'] ) {
-
 					esc_html_e( 'Guest voting is enabled - no login required.', 'polls-block' );
-
 				} else {
 
 					$login_link = wp_sprintf(
@@ -125,9 +122,11 @@ wp_enqueue_style( 'dashicons' );
 					);
 
 				}
-
 				?>
 			</div>
 		<?php endif; ?>
+		<div class="poll-submit-message" data-wp-class--hidden="!context.userVoted">
+			<?php esc_html_e( 'Your vote has been recorded.', 'polls-block' ); ?>
+		</div>
 	</div>
 </div>
