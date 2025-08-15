@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Polls Block
  * Description:       Create Interactive Polls for your WordPress site using Block.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            BuntyWP
@@ -22,7 +22,7 @@ if ( ! defined( 'BTWP_POLLS_VERSION' ) ) {
 	/**
 	 * The version of the plugin.
 	 */
-	define( 'BTWP_POLLS_VERSION', '1.0.0' );
+	define( 'BTWP_POLLS_VERSION', '1.1.0' );
 }
 if ( ! defined( 'BTWP_POLLS_PATH' ) ) {
 	/**

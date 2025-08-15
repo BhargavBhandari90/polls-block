@@ -4,7 +4,7 @@ Donate link:       https://www.paypal.me/BnB90/20
 Tags:              block, polls, poll, voting, blocks
 Requires at least: 6.6
 Tested up to:      6.7
-Stable tag:        1.0.0
+Stable tag:        1.1.0
 License:           GPL-2.0-or-later
 Requires PHP:      7.4
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -34,6 +34,9 @@ https://www.youtube.com/watch?v=XMk_kF7ovq4
 [https://github.com/BhargavBhandari90/polls-block](https://github.com/BhargavBhandari90/polls-block)
 
 == Changelog ==
+
+= 1.1.0 =
+* New Feature: Allow anonymous voting.
 
 = 1.0.0 =
 * Inital Release

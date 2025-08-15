@@ -4,7 +4,7 @@
 **Tags:** block, polls, poll, voting, blocks  
 **Requires at least:** 6.6  
 **Tested up to:** 6.7  
-**Stable tag:** 1.0.0  
+**Stable tag:** 1.1.0  
 **Requires PHP:** 7.4  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
@@ -52,6 +52,9 @@ If you find a bug, report here
 [https://github.com/BhargavBhandari90/polls-block/issues](https://github.com/BhargavBhandari90/polls-block/issues)
 
 ## Changelog ##
+
+### 1.1.0 ###
+* New Feature: Allow anonymous voting.
 
 ### 1.0.0 ###
 * Initial Release.
