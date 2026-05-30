@@ -3,7 +3,7 @@
 **Donate link:** https://www.paypal.me/BnB90/20  
 **Tags:** block, polls, poll, voting, blocks  
 **Requires at least:** 6.6  
-**Tested up to:** 6.7  
+**Tested up to:** 7.0  
 **Stable tag:** 1.1.0  
 **Requires PHP:** 7.4  
 **License:** GPLv2 or later  
